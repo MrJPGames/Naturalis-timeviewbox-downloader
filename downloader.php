@@ -37,6 +37,10 @@
 		exit;
 	}
 
+	if (!is_dir("Downloads/" . $options["n"])){
+		mkdir("Downloads/" . $options["n"]);
+	}
+
 	echo "Started downloading images", PHP_EOL;
 	$baseURL = "http://" . $options["n"] . ".timeboxview.com/api/project/" . $options["n"] . "/images/{%DATE%}/";
 	//Format: {%YEAR%}-{%MONTH%}-{%DAY%}
@@ -94,7 +98,7 @@
 				}else{
 					echo "Getting image for " . $image["date"] . " " . $image["time"] . " day " . $j . " of " . $dateSize . PHP_EOL;
 				}
-				$result = shell_exec('wget -O Downloads/' . $name .  ' "' . $dURL . '" --no-check-certificate >nul 2>&1');
+				$result = shell_exec('wget -O Downloads/' . $options["n"] . '/' . $name .  ' "' . $dURL . '" --no-check-certificate >nul 2>&1');
 			}
 			$i++;
 		}
