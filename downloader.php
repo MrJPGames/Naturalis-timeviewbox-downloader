@@ -1,5 +1,11 @@
 <?php
-	$options = getopt("t:n:i:h:");
+	$options = getopt("t:n:i:h");
+
+	if (!is_dir("Downloads")){
+		echo "Download folder not found, creating folder!";
+		mkdir("Downloads");
+		mkdir("Downloads/temp");
+	}
 
 	if (isset($options["h"])){
 		echo "Time Writers snapshot downloader help:", PHP_EOL, PHP_EOL,
