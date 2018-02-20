@@ -2,7 +2,7 @@
 	$options = getopt("t:n:i:h");
 
 	if (!is_dir("Downloads")){
-		echo "Download folder not found, creating folder!";
+		echo "Download folder not found, creating folder!", PHP_EOL;
 		mkdir("Downloads");
 		mkdir("Downloads/temp");
 	}
@@ -17,6 +17,9 @@
 			"               Minimum is 5 minutes, and all intervals will be", PHP_EOL,
 			"               rounded to the nearest division of 5 as the", PHP_EOL,
 			"               service only provides an image every 5 minutes.", PHP_EOL,
+			"               Note images will download as fast as possible this", PHP_EOL,
+            "               is the interval of time inbetween when the images", PHP_EOL,
+        	"               were taken!", PHP_EOL,
 			"-t %OPTION%  : Choose if you want to download thumbnails or", PHP_EOL,
 			"               full size images. (thumb for thumbnails and full", PHP_EOL,
 			"               for full size images). If this is not set full is", PHP_EOL,
